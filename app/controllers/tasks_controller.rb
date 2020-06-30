@@ -1,4 +1,5 @@
 class TasksController < ApplicationController
+  
     def index
      @tasks = Task.all
     end
@@ -27,7 +28,7 @@ class TasksController < ApplicationController
     end
     
     def update
-     @task = Task.find(params[:id])
+     @tasks = Task.find(params[:id])
      if @task.update(task_params)
         flash[:success] = 'Message は正常に更新されました'
         redirect_to @task
@@ -38,7 +39,7 @@ class TasksController < ApplicationController
     end
     
     def destroy
-      @task = Task.find(params[:id])
+      @tasks = Task.find(params[:id])
       @task.destroy
       flash[:success] = 'Message は正常に削除されました'
       redirect_to task_url
