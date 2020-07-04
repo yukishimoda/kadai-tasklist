@@ -13,8 +13,8 @@
      @task = Task.new
     end
     
-   def create
-     @task = Task.new(task_params)
+    def create
+      @task = Task.new(task_params)
      if @task.save
        flash[:success] = 'タスクが正常に管理されました'
        redirect_to @task
@@ -22,14 +22,14 @@
        flash.now[:danger] = 'タスクが投稿されませんでした'
        render :new
      end
-   end
-  
+    end
+   
    def edit
       @tasks = Task.find(params[:id])
    end
     
    def update
-     @tasks = Task.find(params[:id])
+     @task = Task.find(params[:id])
      if @tasks.update(task_params)
         flash[:success] = 'タスク管理が正常に更新されました'
         redirect_to @tasks
