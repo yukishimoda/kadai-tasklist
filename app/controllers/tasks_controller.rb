@@ -23,7 +23,7 @@
        render :new
      end
    end
-    
+  
    def edit
       @tasks = Task.find(params[:id])
    end
@@ -49,8 +49,7 @@
    def set_message
      @task = Task.find(params[:id])
    end
-   
- 　 def message_params
-  　  params.require(:task).permit(:content)
+   def message_params
+     params.require(:task).permit(:content)
    end
   end
