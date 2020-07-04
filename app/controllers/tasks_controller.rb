@@ -6,7 +6,7 @@
     end
     
     def show
-     @tasks = Task.find(params[:id])
+     @task = Task.find(params[:id])
     end
     
     def new
@@ -15,6 +15,7 @@
     
     def create
       @task = Task.new(task_params)
+     
      if @task.save
        flash[:success] = 'タスクが正常に管理されました'
        redirect_to @task
@@ -30,7 +31,8 @@
     
    def update
      @task = Task.find(params[:id])
-     if @tasks.update(task_params)
+     
+     if @task.update(task_params)
         flash[:success] = 'タスク管理が正常に更新されました'
         redirect_to @tasks
      else
@@ -46,10 +48,11 @@
       redirect_to tasks_url
    end
     
-   def set_message
+   def set_task
      @task = Task.find(params[:id])
    end
-   def message_params
+   
+   def task_params
      params.require(:task).permit(:content)
    end
   end
