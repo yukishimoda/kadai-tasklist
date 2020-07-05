@@ -42,8 +42,8 @@
    end
     
    def destroy
-      @task = Task.find(params[:id])
-      @task.destroy
+      @tasks = Task.find(params[:id])
+      @tasks.destroy
       flash[:success] = 'タスクは正常に削除されました'
       redirect_to tasks_url
    end
