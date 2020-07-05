@@ -34,7 +34,7 @@
      
      if @task.update(task_params)
         flash[:success] = 'タスク管理が正常に更新されました'
-        redirect_to @tasks
+        redirect_to @task
      else
         flash.now[:danger] = 'タスクは更新されませんでした'
         render :edit
