@@ -1,5 +1,5 @@
 class AddTitleToMessages < ActiveRecord::Migration[5.2]
   def change
-    add_column :messages, :title, :string
+    add_column :tasks, :title, :string
   end
 end
