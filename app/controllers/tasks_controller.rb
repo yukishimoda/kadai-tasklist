@@ -14,13 +14,12 @@
     end
     
     def create
-      @task = Task.new(task_params)
-     
+     @task = Task.new(task_params)
      if @task.save
-       flash[:success] = 'タスクが正常に管理されました'
+       flash[:success] = 'Message が正常に投稿されました'
        redirect_to @task
      else
-       flash.now[:danger] = 'タスクが投稿されませんでした'
+       flash.now[:danger] = 'Message が投稿されませんでした'
        render :new
      end
     end
@@ -58,5 +57,4 @@
    def task_params
      params.require(:task).permit(:content, :title)
    end
-   
   end
