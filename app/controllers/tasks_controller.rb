@@ -6,7 +6,7 @@
     end
     
     def show
-     @task = Task.find(params[:id])
+     @tasks = Task.find(params[:id])
     end
     
     def new
@@ -16,10 +16,10 @@
     def create
      @task = Task.new(task_params)
      if @task.save
-       flash[:success] = 'Message が正常に投稿されました'
+       flash[:success] = 'タスクが正常に投稿されました'
        redirect_to @task
      else
-       flash.now[:danger] = 'Message が投稿されませんでした'
+       flash.now[:danger] = 'タスクが投稿されませんでした'
        render :new
      end
     end
@@ -51,10 +51,8 @@
      @task = Task.find(params[:id])
    end
    
+   
    def task_params
-     params.require(:task).permit(:content)
-   end
-   def task_params
-     params.require(:task).permit(:content, :title)
+     params.require(:task).permit(:content, :title, :status)
    end
   end
