@@ -46,6 +46,8 @@
       flash[:success] = 'タスクは正常に削除されました'
       redirect_to tasks_url
    end
+   
+   private
     
    def set_task
      @task = Task.find(params[:id])
@@ -53,6 +55,6 @@
    
    
    def task_params
-     params.require(:task).permit(:content, :title, :status)
+     params.require(:task).permit(:content, :status)
    end
   end
